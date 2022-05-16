@@ -1,0 +1,26 @@
+https://docs.datastax.com/en/install/6.8/install/installDSEDocker.html
+https://docs.datastax.com/en/docker/doc/index.html
+https://docs.datastax.com/en/docker/doc/docker/docker68/dockerReadme.html
+
+https://hub.docker.com/r/datastax/dse-server
+
+https://github.com/datastax/docker-images
+
+DSE: 6.7.13
+CAS: 4.0.0.6713
+CQL: 3.4.5
+Solr: 6.0.1.2.2812
+Spark: 2.2.3.17
+Spark Job Server: 0.8.0.45.2
+
+this env is is set internal network
+172.70.0.2 - is the address for the first node
+172.70.0.3
+172.30.0.2
+172.30.0.3
+
+connect as anonymous user without credentials
+
+DSE Server started at:
+- 172.70.0.3:9042 - to connect from dse-studio (web)
+- 127.0.0.1:9042 - to connect locally from any client

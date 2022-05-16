@@ -1,0 +1,16 @@
+version: '3.3'
+
+services:
+  cassandra:
+    image: cassandra:3.11.10
+    restart: always
+#    environment:
+    ports:
+      - '7000:7000'
+      - '9042:9042'
+    volumes:
+      - ../../../ro:/ro:ro
+      - ../../../rw:/rw
+      - ../../../Downloads:/dl:ro
+      - ../.data/cas311:/var/lib/cassandra
+    container_name: cas_0

@@ -1,0 +1,35 @@
+version: '2'
+services:
+
+  seed_node:
+    image: "datastax/dse-server:6.7.13"
+    command: [ -s -k -g ]
+    environment:
+      - DS_LICENSE=accept
+    cap_add:
+    - IPC_LOCK
+    ulimits:
+      memlock: -1
+    ports:
+      - 9742:9042
+    networks:
+      - net1
+
+  node:
+    image: "datastax/dse-server:6.7.13"
+    command: [ -s -k -g ]
+    environment:
+      - DS_LICENSE=accept
+      - SEEDS=seed_node
+    links:
+      - seed_node
+    cap_add:
+    - IPC_LOCK
+    ulimits:
+      memlock: -1
+    networks:
+      - net1
+
+networks:
+  net1:
+    name: "internal-net1"

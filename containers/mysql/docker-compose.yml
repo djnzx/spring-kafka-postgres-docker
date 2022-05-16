@@ -1,0 +1,23 @@
+version: '3.3'
+
+services:
+  mysql:
+    image: mysql:8.0.23
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'db'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'user123'
+      MYSQL_ROOT_PASSWORD: 'root123'
+    ports:
+      - '3306:3306'
+#    expose:
+#      - '3306'
+    volumes:
+      - ../../../ro:/ro:ro
+      - ../../../rw:/rw
+      - ../../../Downloads:/dl:ro
+      - ../.data/mysql:/var/lib/mysql
+    cap_add:
+      - SYS_NICE
+    container_name: mysql_0
