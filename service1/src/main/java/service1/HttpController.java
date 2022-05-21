@@ -14,10 +14,18 @@ public class HttpController {
 
   private final KafkaTemplate<String, String> kafka;
 
+  @GetMapping("/test")
+  public String test() {
+    return "Ok";
+  }
+
   @GetMapping("/")
   public void handle(@RequestParam(name = "name") String name) {
     String key = Double.toString(Math.random() * 1000);
     String value = name;
+
+    log.info("http got. sending to kafka");
+
     kafka.send(
         "topic1",
         key,
